@@ -26,8 +26,8 @@ class Email{
         $email->Password = $_ENV['EMAIL_PASS'];
 
 
-        $email->setFrom('antoniopro69@gmail.com');
-        $email->addAddress('appsalon@app.com', 'Appsalon.com');
+        $email->setFrom('appsalon@gmail.com');
+        $email->addAddress($this->email, 'Appsalon.com');
         $email->Subject = 'Confirma tu cuenta';
 
         $email->isHTML(true);
