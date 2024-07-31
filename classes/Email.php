@@ -71,8 +71,8 @@ class Email{
             $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         }
         
-        $email->setFrom($this->email);
-        $email->addAddress($this->email,'Appsalon@gmail.com');
+        $email->setFrom('ppsalon@gmail.com');
+        $email->addAddress($this->email);
         $email->Subject = 'restablece tu password';
 
         $email->isHTML(true);
@@ -85,8 +85,9 @@ class Email{
         $contenido .= '</html>';
 
         $email->Body = $contenido;
-
-        $email->send();
+        if (!$mail->send()) {
+            debuguear ('Error al enviar el mensaje: ' . $mail->ErrorInfo);
+        }
 
 
 
