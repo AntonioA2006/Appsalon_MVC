@@ -33,8 +33,8 @@ class Email{
             $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         }
         
-        $email->setFrom($this->email);
-        $email->addAddress($this->email,'Appsalon@gmail.com');
+        $email->setFrom('https://qizpovi.nyc.dom.my.id/');
+        $email->addAddress($this->email);
         $email->Subject = 'Confirma tu cuenta';
         
         $email->isHTML(true);
