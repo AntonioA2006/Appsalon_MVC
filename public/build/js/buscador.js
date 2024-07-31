@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{iniciarApp.index()}));const iniciarApp={index:function(){buscador.index()}},buscador={index:function(){document.querySelector("#fecha").addEventListener("input",(n=>{const e=n.target.value;window.location=`?fecha=${e}`}))}};

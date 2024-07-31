@@ -115,6 +115,16 @@ class ActiveRecord {
         $resultado = self::consultarSQL($query);
         return array_shift( $resultado ) ;
     }
+    public static function where($columna, $valor) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE ${columna} = '${valor}'";
+        $resultado = self::consultarSQL($query);
+        return array_shift( $resultado ) ;
+    }
+    public static function SQL($consulta) {
+        $query = $consulta;
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
 
     // Obtener Registros con cierta cantidad
     public static function get($limite) {
@@ -134,9 +144,9 @@ class ActiveRecord {
         $query .= " ) VALUES (' "; 
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
-
-        // Resultado de la consulta
-        $resultado = self::$db->query($query);
+      
+       
+       $resultado = self::$db->query($query);
         return [
            'resultado' =>  $resultado,
            'id' => self::$db->insert_id
@@ -160,6 +170,7 @@ class ActiveRecord {
         $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
         $query .= " LIMIT 1 "; 
 
+    
         // Actualizar BD
         $resultado = self::$db->query($query);
         return $resultado;

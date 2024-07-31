@@ -1,5 +1,6 @@
 <?php
 
+
 function debuguear($variable) : string {
     echo "<pre>";
     var_dump($variable);
@@ -12,3 +13,21 @@ function s($html) : string {
     $s = htmlspecialchars($html);
     return $s;
 }
+
+function isAuth(): void{
+    
+    if(!isset($_SESSION['login'])){
+        header("Location: /");
+    }
+}   
+function isAdmin(){
+    if (!isset($_SESSION['admin'])) {
+        header("Location: /");
+    }
+}
+function esUltimo(string $actual, string  $proximo):bool{
+        if($actual !== $proximo){
+            return true;
+        }
+        return false;
+}   
