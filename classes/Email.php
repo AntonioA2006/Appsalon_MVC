@@ -27,7 +27,7 @@ class Email{
 
 
         $email->setFrom('appsalon@gmail.com');
-        $email->addAddress($this->email, 'Appsalon.com');
+        $email->addAddress($this->email);
         $email->Subject = 'Confirma tu cuenta';
 
         $email->isHTML(true);
