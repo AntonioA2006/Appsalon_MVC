@@ -71,7 +71,7 @@ class Email{
             $email->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         }
         
-        $email->setFrom('ppsalon@gmail.com');
+        $email->setFrom('appsalon@gmail.com');
         $email->addAddress($this->email);
         $email->Subject = 'restablece tu password';
 
